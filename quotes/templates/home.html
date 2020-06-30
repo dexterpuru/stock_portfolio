@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if ticker %}
+{{ticker}}
+{% endif %}
+
+
+{% if api %}
+{% if api == 'Error' %}
+Wrong tinker symbol, try again...
+{% else %}
+<h1>{{api.quote.companyName}}</h1>
+Price: ${{api.quote.latestPrice}} <br />
+Previous Close: {{api.quote.previousClose}} <br />
+Market Cap: {{api.quote.marketCap}}<br />
+YTD Change: {{api.quote.ytdChange}}<br />
+52Wk High: {{api.quote.week52High}}<br />
+52Wk Low: {{api.quote.week52Low}}<br />
+{% endif %}
+{% endif %}
+{% endblock %}
